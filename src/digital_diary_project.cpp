@@ -9,6 +9,15 @@ using namespace std;
 
 // macros
 #define BUFFER_SIZE 100
+
+void clearScreen(void) {
+    #ifdef _WIN32
+        system("cls");
+    #else   
+        system("clear");
+    #endif
+}
+
 // prototypes
 void displayMenu();
 void displayBar();
@@ -111,6 +120,7 @@ void write()
     if (pass_list.empty())
     {
         setPassword();
+        clearScreen();
         cout << "\n---------------------------- Write below --------------------------------\n"
              << endl
              << "[Enter '#' to exit!]"
@@ -123,6 +133,7 @@ void write()
             usr_data[looptime] = tempData;
             looptime++;
         }
+        clearScreen();
         cout << "\n----------------------- Successfully Created! ----------------------------\n"
              << endl
              << endl;
